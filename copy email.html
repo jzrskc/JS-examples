@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Copy and Cut</title>
+  </head>
+  <body>
+
+    <p>Email me at <a class="emailLink" href="mailto:chriscoyier@gmail.com">chriscoyier@gmail.com</a></p>
+    <p><button class="copyBtn">Copy Email</button></p>
+
+
+    <script>
+    var copyEmailBtn = document.querySelector('.copyBtn');
+
+    copyEmailBtn.addEventListener('click', function(event) {
+      // Select the email link anchor text
+      var emailLink = document.querySelector('.emailLink');
+      var range = document.createRange();
+      console.log(range);
+      range.selectNode(emailLink);
+      range.selectNode(emailLink);
+      window.getSelection().addRange(range);
+
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      console.log(range);
+    });
+
+    </script>
+
+  </body>
+</html>
